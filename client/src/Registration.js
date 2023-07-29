@@ -5,12 +5,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 const Registration = () => {
     const [formValue, setFormValue] = useState({
-        userName: "",
-        fullName: "",
+        username: "",
+        full_name: "",
         email: "",
         password: "",
-        address: "",
-        phoneNo: ""
+        address: ""
     })
     const Navigate = useNavigate();
     const [Eerror, setEerror] = useState("");
@@ -73,18 +72,6 @@ const Registration = () => {
                 setAerror('')
             }
         }
-        if (e.target.name == 'phoneNo') {
-            const checkPass = /^\d{9}$/;
-            if (!checkPass.test(formValue.phoneNo)) {
-                setPherror('phoneno is not valid')
-            }
-            else {
-                setPherror('')
-            }
-            if (!e.target.value) {
-                setPherror('phone No is required')
-            }
-        }
     }
 
     const addUserhandler = (e) => {
@@ -111,13 +98,13 @@ const Registration = () => {
                 <div className="form-body" style={{ padding: "5px" }}>
                     <div className="username">
                         <label className="form__label" for="firstName">User Name </label>
-                        <input className="form__input" type="text" name="userName" placeholder="User Name" onChange={handleChange} style={{ width: '250px' }} />
+                        <input className="form__input" type="text" name="username" placeholder="User Name" onChange={handleChange} style={{ width: '250px' }} />
                         <div style={{ color: "red", marginLeft: "200px" }}>{Uerror}</div>
 
                     </div>
                     <div className="fullName">
                         <label className="form__label" for="lastName">Full Name </label>
-                        <input type="text" name="fullName" className="form__input" placeholder="LastName" onChange={handleChange} style={{ width: '250px' }} />
+                        <input type="text" name="full_name" className="form__input" placeholder="LastName" onChange={handleChange} style={{ width: '250px' }} />
                         <div style={{ color: "red", marginLeft: "200px" }}>{Ferror}</div>
 
                     </div>
@@ -138,11 +125,6 @@ const Registration = () => {
                         <input className="form__input" type="text" name="address" placeholder="address" onChange={handleChange} style={{ width: '250px' }} />
                         <div style={{ color: "red", marginLeft: "200px" }}>{Aerror}</div>
 
-                    </div>
-                    <div className="PhoneNo">
-                        <label className="form__label" for="confirmPassword">Phone No</label>
-                        <input className="form__input" type="text" name="phoneNo" placeholder="phone No" onChange={handleChange} style={{ width: '250px' }} />
-                        <div style={{ color: "red", marginLeft: "200px" }}>{Pherror}</div>
                     </div>
                     <center>
                         <button type="submit" style={{ width: "100px", height: '30px', backgroundColor: "green" }}>Register</button>
