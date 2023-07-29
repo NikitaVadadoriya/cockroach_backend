@@ -5,9 +5,10 @@ require("dotenv").config();
 const db = new Sequelize(process.env.DATABASE_URL,
     {
         dialectOptions: {
-            application_name: "docs_simplecrud_node-sequelize"
+            application_name: "docs_simplecrud_node-sequelize",
+            dialect: 'mysql', 
         },
-        dialect: 'postgres', 
+      
         logging: false
     });
     
