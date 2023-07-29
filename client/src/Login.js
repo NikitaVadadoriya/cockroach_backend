@@ -42,7 +42,7 @@ const Login = () => {
     }
     const loginHandler = (e) => {
         e.preventDefault();
-        const data = axios.post(`http://localhost:5000/api/user/login`, formValue)
+        const data = axios.post(`https://cockroach-backend.vercel.app/api/user/login`, formValue)
             .then(async (res) => {
                 message.success('login successfully..')
                 Navigate('/home')

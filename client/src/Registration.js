@@ -90,7 +90,7 @@ const Registration = () => {
     const addUserhandler = (e) => {
         e.preventDefault();
 
-        const data = axios.post(`http://localhost:5000/api/user/addUser`, formValue)
+        const data = axios.post(`https://cockroach-backend.vercel.app/api/user/addUser`, formValue)
             .then(async (res) => {
                 message.success("registration successfully....")
                 Navigate('/login')
